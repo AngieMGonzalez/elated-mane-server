@@ -62,6 +62,7 @@ class CustomerView(ViewSet):
         serialized = CustomerSerializer(customer, context={'request': request})
         return Response(serialized.data, status=status.HTTP_201_CREATED)
 
+# class CustomerAppointmentSerializer
 
 class CustomerSerializer(serializers.ModelSerializer):
     """JSON serializer for customer creator"""
@@ -70,4 +71,4 @@ class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
         """JSON serializer for customer creator"""
         model = Customer
-        fields = ('id', 'stylist', 'name', 'date_created',)
+        fields = ('id', 'stylist', 'name', 'date_created', 'appointments')
